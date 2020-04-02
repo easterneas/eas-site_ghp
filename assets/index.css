@@ -63,6 +63,22 @@ header h1, header h2, header a {
     @apply text-white;
 }
 
+footer {
+    @apply min-h-16;
+    @apply pt-12;
+    @apply bg-gray-900;
+    @apply text-white;
+}
+
+footer a {
+    @apply text-gray-400;
+    transition: ease 200ms;
+}
+
+footer a:hover {
+    @apply text-gray-700;
+}
+
 /* Size-specific */
 
 /* @screen sm {
