@@ -38,6 +38,7 @@ nav #menu > div > a.action:hover {
 
 header {
     @apply bg-gray-700;
+    @apply text-white;
 }
 
 header > .container {
@@ -45,6 +46,10 @@ header > .container {
     @apply mx-auto;
     @apply justify-center;
     @apply h-screen w-screen;
+}
+
+header#post > .container {
+    @apply min-h-32 h-auto w-screen;
 }
 
 header > h1 {
@@ -61,6 +66,10 @@ span > a:first-child {
 
 header h1, header h2, header a {
     @apply text-white;
+}
+
+header, main {
+    @apply mb-8;
 }
 
 footer {
