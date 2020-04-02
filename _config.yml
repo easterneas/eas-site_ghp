@@ -1,4 +1,26 @@
-theme: jekyll-theme-cayman
+# theme: jekyll-theme-cayman
 title: Eas
 description: The self-taught web developer. Loves to learn new things.
 google_analytics: UA-160114482-1
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+facebook:
+  page: "https://facebook.com/"
+
+github:
+  profile: "https://github.com/easterneas"
+  repository: "https://github.com/easterneas/easterneas.github.io"
+
+
+include:
+  - "assets"
+
+exclude:
+  - "*.config.js"
+  - "package*.json"
+  - "node_modules"

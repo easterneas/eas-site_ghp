@@ -9,3 +9,6 @@ This git contains components required for my personal blog to work inside GitHub
 This is about my blog, contains the portfolio about my projects, and (if any) also includes posts of mine inside.
 
 The blog will be continuously developed, as I might add/remove features as needed.
+
+## Support
+If you find my works and/or contributions help you, buying me a coffee helps me a lot.

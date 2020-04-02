@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+
+/* Base */
+
+/* body {
+    @apply mx-auto;
+}
+
+
+
+ */
+
+.container {
+    @apply mx-auto;
+}
+
+nav {
+    @apply fixed w-full flex items-center justify-between bg-black px-4 h-16;
+}
+
+nav #menu {
+    @apply flex items-center;
+}
+
+nav #menu > div > a.action {
+    @apply inline-block;
+    @apply text-sm text-white;
+    @apply px-4 py-2 mt-4;
+    @apply leading-none border rounded border-white;
+}
+
+nav #menu > div > a.action:hover {
+    @apply border-transparent;
+    @apply text-teal-500;
+    @apply bg-white;
+}
+
+header {
+    @apply bg-gray-700;
+}
+
+header > .container {
+    @apply flex flex-col;
+    @apply mx-auto;
+    @apply justify-center;
+    @apply h-screen w-screen;
+}
+
+header > h1 {
+    @apply text-6xl !important;
+}
+
+header > h2 {
+    @apply text-3xl !important;
+}
+
+span > a:first-child {
+    @apply ml-0;
+}
+
+header h1, header h2, header a {
+    @apply text-white;
+}
+
+/* Size-specific */
+
+/* @screen sm {
+    h1 {
+        @apply text-xl;
+    }
+
+    nav {
+        @apply flex-wrap;
+    }
+
+    nav #menu {
+        @apply fixed left-0 mt-16;
+    }
+
+    nav #menu > div {
+        @apply flex;
+    }
+
+    nav #menu-btn {
+        @apply block;
+    }
+}
+
+
+
+@screen lg {
+    nav #menu {
+        @apply items-center w-auto;
+    }
+    
+    nav #menu > div#left > a {
+        @apply mt-0;
+    } 
+} */
+
+nav #menu > div > a.action {
+    @apply hidden;
+}
+
+@screen md {
+    nav #menu > div > a.action {
+        @apply block;
+    }
+
+    nav {
+        @apply flex-no-wrap;
+    }
+
+    nav #menu {
+        @apply relative mt-0;
+    }
+
+    nav #menu-btn {
+        @apply hidden;
+    }
+}
+
+@screen lg {
+    nav #menu > div > a.action {
+        @apply mt-0;
+    } 
+}
+
+/* Typography */
+
+h1 {
+    @apply font-bold text-4xl;
+}
+
+h2 {
+    @apply font-bold text-2xl;
+}
+
+h3 {
+    @apply text-xl;
+}
+
+h4 {
+    @apply text-lg;
+}
+
+p {
+    @apply mb-4;
+}
+
+/* Widgets */
+
+.posts {
+    @apply flex flex-row flex-wrap;
+}
+
+.posts > .post {
+    @apply px-4 w-1/4 mb-8;
+}
+
+.post > .card {
+    @apply mx-auto bg-gray-400;
+    @apply rounded-lg;
+}
+
+.post > .card > .card-body {
+    @apply p-4 min-h-16;
+}
+
+/* Forms/Buttons */
+
+a.btn, button {
+    @apply m-4 p-4 rounded bg-gray-400 text-gray-800;
+    transition: ease 200ms;
+}
+
+a.btn:hover, button:hover {
+    @apply bg-gray-600 text-white;
+}
+
+/* Nav */
+
+/* nav > #menu-btn > button {
+    @apply flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400;
+}
+
+nav > #menu-btn > button:hover {
+    @apply text-white border-white;
+}
+
+nav > #logo {
+    @apply flex-shrink-0;
+}
+
+nav > #menu {
+    @apply flex-row flex px-4 bg-black;
+}
+
+ */
+#menu > div#left > a {
+    @apply block align-middle inline-block text-gray-500;
+}
+
+#menu > div#left > a:hover {
+    @apply text-white;
+}
+
+#menu > div#left > a:not(last-child) {
+    @apply mr-4;
+}
+
+/* Header */
+
+/* header > div {
+    @apply table-cell align-middle;
+} */
+
+/* Main */
+
+/* main > aside {
+    @apply mx-auto h-full flex justify-center items-center bg-gray-200;
+} */
+
+/* Footer */
+
+@tailwind utilities;
