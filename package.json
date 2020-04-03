@@ -3,7 +3,7 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production npx webpack",
     "dev": "cross-env NODE_ENV=development npx webpack",
-    "watch": "cross-env NODE_ENV=production npx webpack --watch"
+    "watch": "cross-env NODE_ENV=development npx webpack --watch"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
