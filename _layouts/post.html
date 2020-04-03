@@ -13,13 +13,13 @@
     <main role="main">
       <div class="container">
 
-        <div class="w-3/4">
+        <div class="w-3/4 mx-auto self-center">
           {{ content }}
-        </div>
 
-        {% if page.comments %}
-          {% include disqus.html %}
-        {% endif %}
+          {% if page.comments %}
+            {% include disqus.html %}
+          {% endif %}
+        </div>
 
         <div class="mb-8">
           <h1>My Latest Posts</h1>
