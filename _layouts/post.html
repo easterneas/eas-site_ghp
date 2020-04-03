@@ -12,10 +12,21 @@
 
     <main role="main">
       <div class="container">
-        {{ content }}
+
+        <div class="w-3/4">
+          {{ content }}
+        </div>
+
+        {% if page.comments %}
+          {% include disqus.html %}
+        {% endif %}
+
+        <div class="mb-8">
+          <h1>My Latest Posts</h1>
+        </div>
 
         <div class="posts">
-            {% for post in site.posts %}
+            {% for post in site.posts limit:3 %}
             <!-- Post card -->
               <div class="post">
                 <div class="card">
@@ -32,7 +43,7 @@
                 </div>
               </div>
             {% endfor %}
-        </div>
+            </div>
       </div>
     </main>
 
