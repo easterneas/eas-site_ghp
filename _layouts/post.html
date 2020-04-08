@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-
-    {% include head.html %}
-    
+    {% include head.analytics.html %}
+    {% include head.meta.html %}
+    {% include head.title.post.html %}
+    {% include head.styles.html %}
   </head>
   <body>
     {% include nav.html %}
 
-    {% include post.header.html %}
+    {% include header.post.html %}
 
     <main role="main">
       <div class="container">
@@ -25,25 +26,35 @@
           <h1>My Latest Posts</h1>
         </div>
 
-        <div class="posts">
-            {% for post in site.posts limit:3 %}
-            <!-- Post card -->
-              <div class="post">
-                <div class="card">
-                  <div class="card-header">
-                      {{ post.image }}
-                      <img src="{{ '/assets/img/svg/logo.svg' }}" class="fill-current text-white h-full mr-3">
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ post.permalink }}">
-                      <h3>{{ post.title }}</h3>
-                    </a>
-                    <span>{{ post.summary }}</span>
-                  </div>
-                </div>
+        
+
+      <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {% for post in site.posts limit: 4 %}
+          <!-- Post card -->
+          <a href="{{ post.permalink }}">
+            <div class="bg-gray-200 rounded-lg hover:bg-gray-400">
+              {% if post.image %}
+              <div class="bg-cover bg-center bg-no-repeat w-full h-64" style="background-image: url({{ post.image }})">
               </div>
-            {% endfor %}
+              {% else %}
+              <div class="bg-contain bg-center bg-no-repeat w-full h-64"
+                style="background-image: url({{ '/assets/img/svg/logo.svg' }})">
+              </div>
+              {% endif %}
+              <div class="p-4">
+                <h3 class="text-2xl mb-4">{{ post.title }}</h3>
+                <p>{{ post.summary }}</p>
+              </div>
             </div>
+          </a>
+          {% endfor %}
+        </div>
+  
+        <div class="text-center">
+          <a href="/blog" class="mx-auto inline-block px-4 py-2 border border-black hover:text-white hover:bg-black rounded-full uppercase">
+            Older posts
+          </a>
+        </div>
       </div>
     </main>
 

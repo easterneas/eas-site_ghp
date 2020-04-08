@@ -1,76 +1,70 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
 
-    {% if site.google_analytics %}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}');
-      </script>
-    {% endif %}
-    <meta charset="UTF-8">
+<head>
+  {% include head.analytics.html %}
+  {% include head.meta.html %}
+  {% include head.title.default.html %}
+  {% include head.styles.html %}
+</head>
 
-    {% if page.title %}
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <meta name="title" content="{{ page.title }} | {{ site.title }}">
-    {% else %}
-    <title>{{ site.title }}</title>
-    <meta name="title" content="{{ site.title }}">
-    {% endif %}
+<body>
 
-    <meta name="description" content="{{ page.description }}">
-    <meta name="author" content="Eas">
+  {% include nav.html %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ site.data.manifest['docs.css'] }}">
+  {% include header.default.html %}
 
-  </head>
-  <body>
-    
-    {% include nav.html %}
+  <main role="main">
+    <div class="container">
 
-    {% include default.header.html %}
-
-    <main role="main">
-      <div class="container">
-
-        {{ content }}
-
-        <div class="mb-8">
-          <h1>My Posts</h1>
-        </div>
-
-        <div class="posts">
-            {% for post in site.posts %}
-            <!-- Post card -->
-              <div class="post">
-                <div class="card">
-                  <div class="card-header">
-                      {{ post.image }}
-                      <img src="{{ '/assets/img/svg/logo.svg' }}" class="fill-current text-white h-full">
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ post.permalink }}">
-                      <h3>{{ post.title }}</h3>
-                    </a>
-                    <span>{{ post.summary }}</span>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
-        </div>
+      <div class="mb-8">
+        {% for project in site.data.projects %}
+        {{ project.name }}
+        {{ project.description }}
+        <img src="{{ project.image }}" alt="{{ project.name }}">
+        {% endfor %}
       </div>
-    </main>
 
-    <aside>
-    </aside>
+      {{ content }}
 
-    {% include footer.html %}
-  </body>
+      <div class="mb-8">
+        <h1>My Recent Posts</h1>
+      </div>
+
+      <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for post in site.posts limit: 4 %}
+        <!-- Post card -->
+        <a href="{{ post.permalink }}">
+          <div class="bg-gray-200 rounded-lg hover:bg-gray-400">
+            {% if post.image %}
+            <div class="bg-cover bg-center bg-no-repeat w-full h-64" style="background-image: url({{ post.image }})">
+            </div>
+            {% else %}
+            <div class="bg-contain bg-center bg-no-repeat w-full h-64"
+              style="background-image: url({{ '/assets/img/svg/logo.svg' }})">
+            </div>
+            {% endif %}
+            <div class="p-4">
+              <h3 class="text-2xl mb-4">{{ post.title }}</h3>
+              <p>{{ post.summary }}</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="text-center">
+        <a href="/blog" class="mx-auto inline-block px-4 py-2 border border-black hover:text-white hover:bg-black rounded-full uppercase">
+          Older posts
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+  </aside>
+
+  {% include footer.html %}
+</body>
+
 </html>
