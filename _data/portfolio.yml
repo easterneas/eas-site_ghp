@@ -1,0 +1,41 @@
+- name: GitHub Projects
+  list:
+    - name: The Benih Project
+      status: under development
+      description: Based on Laravel, intended for speeding up the development. The project has some plugins baked in and configured out-of-the-box.
+      github: https://github.com/easterneas/benih
+      image:
+    - name: The GBIG Platform
+      status: under development
+      description: Based on Laravel, intended for churches, especially for GBI Grogol. Helps churches managing their members, and to provide better service for people.<br><br>Currently in private development, so stay tuned! :)
+      github: https://github.com/easterneas/gbig
+      image:
+    - name: The Rock
+      status: planned
+      description: The upcoming open source platform for churches. Based on current The GBIG Platform, and serves the most needed features for all churches.
+      image:
+    - name: The Static Seed
+      status: planned
+      description: Made for Jekyll-based sites, this serves as the static site boilerplate for people to develop and host for themselves. Using Tailwind CSS for utility-first site styling.
+      image:
+- name: Site Projects
+  list:
+    - name: ISTI Expedisi
+      status: deployed
+      date: 2019/12/19
+      description: I made this for my client who runs the delivery company. Based on Laravel, and used MegaKit from KeenThemes.
+      link: https://istiekspedisi.com
+      image:
+    - name: GBI Grogol
+      date: 2020/04/08
+      status: active
+      description: Jekyll-based site for GBI Grogol as my effort for charity and voluntary church contribution. Supports article publishing.
+      link: https://gbigrogol.com
+      github: https://github.com/easterneas/gbi-grogol
+      image:
+- name: Other Projects
+  list:
+    - name: Easy and Simple on YouTube
+      description: I don't only develop this site and code some projects, but also run a YouTube channel. It's mainly in Indonesian, but it's worth checking it out. ;)
+      link: https://www.youtube.com/channel/UCwW62q1NEy-jq2_RkjegoAQ
+      image:
