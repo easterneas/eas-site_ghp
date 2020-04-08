@@ -1,7 +1,20 @@
-<div id="mobile-menu" class="fixed mt-12 w-screen left-0 px-4 border-t-2 bg-gray-900 border-white text-white md:hidden">
-    <div id="left" class="text-sm flex-grow py-2 flex justify-between">
-        {% for menu in site.data.nav %}
-            <a href="{{ menu.link }}">{{ menu.name }}</a>
-        {% endfor %}
+<div class="md:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+    <div class="mx-auto md:mx-0 w-16 col-span-1 lg:col-span-1">
+        <a href="/" class="grid grid-cols-1 md:grid-cols-2 w-16 items-center text-white h-16 py-2 lg:py-0 lg:w-20">
+            <div class="h-full bg-contain bg-center bg-no-repeat"
+                style="background-image: url(/assets/img/svg/logo.svg);">
+            </div>
+            <div class="hidden md:inline-block ml-4 font-bold text-2xl tracking-wide">Eas</div>
+        </a>
+    </div>
+    <div class="md:text-right col-span-1 lg:col-start-4 lg:col-span-2">
+        <div class="w-screen px-8 border-t-2 bg-gray-900 border-white text-white md:hidden">
+            <div id="left" class="text-sm flex justify-between">
+                {% for menu in site.data.nav %}
+                <a href="{{ menu.link }}"
+                    class="inline-block py-4 text-white hover:text-gray-400">{{ menu.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
