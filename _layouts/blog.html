@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-      {% include head.analytics.html %}
-      {% include head.meta.html %}
-      {% include head.title.blog.html %}
-      {% include head.styles.html %}
-  </head>
-  <body>
-    
-    {% include nav.html %}
 
-    {% include header.blog.html %}
+<head>
+  {% include head.analytics.html %}
+  {% include head.meta.html %}
+  {% include head.title.blog.html %}
+  {% include head.styles.html %}
+</head>
 
-    <main role="main">
-      <div class="container">
+<body>
 
-        {{ content }}
+  {% include nav.html %}
 
-        <div class="mb-8">
-          <h1>My Posts</h1>
+  {% include header.blog.html %}
+
+  <main role="main">
+
+    <div class="container mb-8">
+      {{ content }}
+    </div>
+
+    <div class="container mb-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <div class="col-span-1 md:col-span-2">
+          {% for post in site.posts %}
+          <!-- Post card -->
+          <div class="grid grid-cols-1 md:grid-cols-3 mb-8">
+            {% if post.image %}
+            <div class="col-span-1 bg-cover bg-center bg-no-repeat w-full h-64"
+              style="background-image: url({{ post.image }})">
+            </div>
+            {% else %}
+            <div class="col-span-1 rounded-lg bg-contain bg-center bg-no-repeat w-full h-64"
+              style="background-image: url({{ '/assets/img/svg/logo.svg' }}),linear-gradient(rgba(100,100,100,.8), rgba(100,100,100,0))">
+            </div>
+            {% endif %}
+            <div class="col-span-1 md:col-span-2 px-8 py-4">
+              <h3 class="text-2xl mb-4">{{ post.title }}</h3>
+              <p class="mb-4">{{ post.summary }}</p>
+              <a href="{{ post.url }}"
+                class="inline-block uppercase border border-black rounded-full px-4 py-2">Read More</a>
+            </div>
+          </div>
+          {% endfor %}
         </div>
 
-        <div class="posts">
-            {% for post in site.posts %}
-            <!-- Post card -->
-              <div class="sm:hidden md:block">
-                <div class="card">
-                  <div class="card-header">
-                      {{ post.image }}
-                      <img src="{{ '/assets/img/svg/logo.svg' }}" class="fill-current text-white h-full">
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ post.permalink }}">
-                      <h3>{{ post.title }}</h3>
-                    </a>
-                    <span>{{ post.summary }}</span>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
-        </div>
+        <aside>
+          <div class="mb-8 rounded-lg bg-gray-300">
+            <div class="px-8 py-4">
+              <h4 class="text-3xl">Archives</h4>
+              <!-- source: https://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year -->
+              {% for post in site.posts  %}
+                {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+                {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+                {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+                {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+                {% if forloop.first %}
+                  <h2 class="text-2xl" id="{{ this_year }}-ref">{{this_year}}</h2>
+                  <h3 class="text-xl" id="{{ this_year }}-{{ this_month }}-ref">{{ this_month }}</h3>
+                  <ul>
+                {% endif %}
+
+                <li><a href="{{ post.url }}" class="text-lg my-2 block text-gray-900 hover:text-gray-600">{{ post.title }}</a></li>
+
+                {% if forloop.last %}
+                  </ul>
+                {% else %}
+                  {% if this_year != next_year %}
+                    </ul>
+                    <h2 class="text-2xl" id="{{ next_year }}-ref">{{next_year}}</h2>
+                    <h3 class="text-xl" id="{{ next_year }}-{{ next_month }}-ref">{{ next_month }}</h3>
+                    <ul>
+                  {% else %}
+                    {% if this_month != next_month %}
+                      </ul>
+                      <h3 class="text-xl" id="{{ this_year }}-{{ next_month }}-ref">{{ next_month }}</h3>
+                      <ul>
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </aside>
+
       </div>
-    </main>
 
-    <aside>
-    </aside>
+    </div>
+  </main>
 
-    {% include footer.html %}
-  </body>
+  <aside>
+  </aside>
+
+  {% include footer.html %}
+</body>
+
 </html>
