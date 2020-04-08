@@ -15,20 +15,19 @@
   {% include header.default.html %}
 
   <main role="main">
-    <div class="container">
-
-      <div class="mb-8">
+    <!-- <div class="container mb-8">
         {% for project in site.data.projects %}
         {{ project.name }}
         {{ project.description }}
         <img src="{{ project.image }}" alt="{{ project.name }}">
         {% endfor %}
-      </div>
-
+    </div> -->
+    <div class="container mb-8">
       {{ content }}
-
+    </div>
+    <div class="container mb-8">
       <div class="mb-8">
-        <h1>My Recent Posts</h1>
+        <h2 class="text-2xl md:text-3xl lg:text-4xl text-center">My Recent Posts</h2>
       </div>
 
       <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
