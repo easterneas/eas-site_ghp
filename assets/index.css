@@ -11,26 +11,37 @@
 
  */
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .container {
     @apply mx-auto;
+    @apply w-full;
 }
 
 nav {
     @apply fixed w-full flex items-center justify-between bg-black px-4 h-16;
 }
 
-nav #menu {
-    @apply flex items-center;
+nav #menu, nav #mobile-menu {
+    @apply items-center;
 }
 
-nav #menu > div > a.action {
+nav #menu > div > a.action,
+nav #mobile-menu > div > a.action {
     @apply inline-block;
     @apply text-sm text-white;
     @apply px-4 py-2 mt-4;
     @apply leading-none border rounded border-white;
 }
 
-nav #menu > div > a.action:hover {
+nav #menu > div > a.action:hover,
+nav #mobile-menu > div > a.action:hover {
     @apply border-transparent;
     @apply text-teal-500;
     @apply bg-white;
@@ -70,13 +81,6 @@ header h1, header h2, header a {
 
 header, main {
     @apply mb-8;
-}
-
-footer {
-    @apply min-h-16;
-    @apply pt-12;
-    @apply bg-gray-900;
-    @apply text-white;
 }
 
 footer a {
@@ -124,12 +128,32 @@ footer a:hover {
     } 
 } */
 
+header, main, footer {
+    @apply px-4;
+}
+
+aside {
+    @apply hidden;
+}
+
 nav #menu > div > a.action {
     @apply hidden;
 }
 
+.posts > .post {
+    @apply px-4 w-full mb-8 mx-auto;
+}
+
 @screen md {
-    nav #menu > div > a.action {
+    .container {
+        @apply w-screen;
+    }
+
+    header, main, footer {
+        @apply px-0;
+    }
+
+    aside, nav #menu > div > a.action {
         @apply block;
     }
 
@@ -144,12 +168,20 @@ nav #menu > div > a.action {
     nav #menu-btn {
         @apply hidden;
     }
+
+    .posts > .post {
+        @apply px-4 w-1/3 mb-8;
+    }
 }
 
 @screen lg {
     nav #menu > div > a.action {
         @apply mt-0;
     } 
+
+    .posts > .post {
+        @apply px-4 w-1/4 mb-8;
+    }
 }
 
 /* Typography */
@@ -178,10 +210,6 @@ p {
 
 .posts {
     @apply flex flex-row flex-wrap;
-}
-
-.posts > .post {
-    @apply px-4 w-1/4 mb-8;
 }
 
 .post > .card {
