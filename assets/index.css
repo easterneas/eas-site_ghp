@@ -1,3 +1,11 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 
@@ -11,85 +19,17 @@
 
  */
 
-body {
-    font-family: 'Lato', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
 .container {
     @apply mx-auto;
-    @apply w-full;
+    @apply w-screen;
 }
 
-nav {
+/* nav {
     @apply fixed w-full flex items-center justify-between bg-black px-4 h-16;
-}
-
-nav #menu, nav #mobile-menu {
-    @apply items-center;
-}
-
-nav #menu > div > a.action,
-nav #mobile-menu > div > a.action {
-    @apply inline-block;
-    @apply text-sm text-white;
-    @apply px-4 py-2 mt-4;
-    @apply leading-none border rounded border-white;
-}
-
-nav #menu > div > a.action:hover,
-nav #mobile-menu > div > a.action:hover {
-    @apply border-transparent;
-    @apply text-teal-500;
-    @apply bg-white;
-}
-
-header {
-    @apply bg-gray-700;
-    @apply text-white;
-}
-
-header > .container {
-    @apply flex flex-col;
-    @apply mx-auto;
-    @apply justify-center;
-    @apply h-screen w-screen;
-}
-
-header#post > .container {
-    @apply min-h-32 h-auto w-screen;
-}
-
-header > h1 {
-    @apply text-6xl !important;
-}
-
-header > h2 {
-    @apply text-3xl !important;
-}
+} */
 
 span > a:first-child {
     @apply ml-0;
-}
-
-header h1, header h2, header a {
-    @apply text-white;
-}
-
-header, main {
-    @apply mb-8;
-}
-
-footer a {
-    @apply text-gray-400;
-    transition: ease 200ms;
-}
-
-footer a:hover {
-    @apply text-gray-700;
 }
 
 /* Size-specific */
@@ -127,154 +67,5 @@ footer a:hover {
         @apply mt-0;
     } 
 } */
-
-header, main, footer {
-    @apply px-4;
-}
-
-aside {
-    @apply hidden;
-}
-
-nav #menu > div > a.action {
-    @apply hidden;
-}
-
-.posts > .post {
-    @apply px-4 w-full mb-8 mx-auto;
-}
-
-@screen md {
-    .container {
-        @apply w-screen;
-    }
-
-    header, main, footer {
-        @apply px-0;
-    }
-
-    aside, nav #menu > div > a.action {
-        @apply block;
-    }
-
-    nav {
-        @apply flex-no-wrap;
-    }
-
-    nav #menu {
-        @apply relative mt-0;
-    }
-
-    nav #menu-btn {
-        @apply hidden;
-    }
-
-    .posts > .post {
-        @apply px-4 w-1/3 mb-8;
-    }
-}
-
-@screen lg {
-    nav #menu > div > a.action {
-        @apply mt-0;
-    } 
-
-    .posts > .post {
-        @apply px-4 w-1/4 mb-8;
-    }
-}
-
-/* Typography */
-
-h1 {
-    @apply font-bold text-4xl;
-}
-
-h2 {
-    @apply font-bold text-2xl;
-}
-
-h3 {
-    @apply text-xl;
-}
-
-h4 {
-    @apply text-lg;
-}
-
-p {
-    @apply mb-4;
-}
-
-/* Widgets */
-
-.posts {
-    @apply flex flex-row flex-wrap;
-}
-
-.post > .card {
-    @apply mx-auto bg-gray-400;
-    @apply rounded-lg;
-}
-
-.post > .card > .card-body {
-    @apply p-4 min-h-16;
-}
-
-/* Forms/Buttons */
-
-a.btn, button {
-    @apply m-4 p-4 rounded bg-gray-400 text-gray-800;
-    transition: ease 200ms;
-}
-
-a.btn:hover, button:hover {
-    @apply bg-gray-600 text-white;
-}
-
-/* Nav */
-
-/* nav > #menu-btn > button {
-    @apply flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400;
-}
-
-nav > #menu-btn > button:hover {
-    @apply text-white border-white;
-}
-
-nav > #logo {
-    @apply flex-shrink-0;
-}
-
-nav > #menu {
-    @apply flex-row flex px-4 bg-black;
-}
-
- */
-#menu > div#left > a {
-    @apply block align-middle inline-block text-gray-500;
-}
-
-#menu > div#left > a:hover {
-    @apply text-white;
-}
-
-#menu > div#left > a:not(last-child) {
-    @apply mr-4;
-}
-
-/* Header */
-
-/* header > div {
-    @apply table-cell align-middle;
-} */
-
-/* Main */
-
-/* main > aside {
-    @apply mx-auto h-full flex justify-center items-center bg-gray-200;
-} */
-
-/* Footer */
 
 @tailwind utilities;
