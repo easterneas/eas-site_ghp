@@ -12,18 +12,20 @@
     {% include header.post.html %}
 
     <main role="main">
-      <div class="container">
+      <div class="container py-8">
 
-        <div class="w-3/4 mx-auto self-center">
+        <div class="w-3/4 mx-auto mb-8">
           {{ content }}
+        </div>
 
+        <div class="w-3/4 mx-auto mb-8">
           {% if page.comments %}
             {% include disqus.html %}
           {% endif %}
         </div>
 
         <div class="mb-8">
-          <h1>My Latest Posts</h1>
+          <h2 class="mb-4 text-center text-2xl md:text-3xl lg:text-4xl">My Latest Posts</h2>
         </div>
 
         
