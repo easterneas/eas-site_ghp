@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: Blog
+  link: /blog
+- name: Portfolio
+  link: /portfolio
+- name: Contact Me
+  link: /contact
+- name: Buy Me Coffee?
+  link: /buy-me-coffee

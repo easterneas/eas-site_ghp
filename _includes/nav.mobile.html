@@ -1,0 +1,7 @@
+<div id="mobile-menu" class="fixed mt-12 w-screen left-0 px-4 border-t-2 bg-gray-900 border-white text-white md:hidden">
+    <div id="left" class="text-sm flex-grow py-2 flex justify-between">
+        {% for menu in site.data.nav %}
+            <a href="{{ menu.link }}">{{ menu.name }}</a>
+        {% endfor %}
+    </div>
+</div>
