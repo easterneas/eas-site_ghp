@@ -11,4 +11,4 @@ This is about my blog, contains the portfolio about my projects, and (if any) al
 The blog will be continuously developed, as I might add/remove features as needed.
 
 ## Support
-If you find my works and/or contributions help you, buying me a coffee helps me a lot.
+If you find my works and/or contributions help you, [buying me a coffee](https://eas.web.id/buy-me-coffee) helps me a lot.
