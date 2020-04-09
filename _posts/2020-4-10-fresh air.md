@@ -21,7 +21,7 @@ I'm Eas, the self-taught web developer, also a small YouTuber (more on that late
 
 Man... I couldn't stop thinking that this is gonna be the most efficient way of blogging (no WYSIWYG-thingy), when comparing to my blog in the past using WordPress. Templates? I can make it using just a normal HTML and Liquid tag.
 
-Well, I can use PHP to make the same, though, but for just the blogging site, it's too complex and has more points of issues/failure. So, using static site generator like Jekyll, [provides more benefits for me on blogging](https://learn.cloudcannon.com/jekyll/why-use-a-static-site-generator/).
+Well, I can use PHP to make the same, though, but for just the blogging site, it's too complex and has more points of issues/failure. So, using static site generator like Jekyll-Liquid combo, [provides more benefits for me on blogging](https://learn.cloudcannon.com/jekyll/why-use-a-static-site-generator/). Thanks to [GitHub Pages](https://pages.github.com), as they provide the way for developers to make site for manuals, documentations, or blog posts like mine.
 
 Ah, yes, back to topic.
 
