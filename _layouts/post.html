@@ -14,11 +14,11 @@
     <main role="main">
       <div class="container py-8">
 
-        <div class="w-3/4 mx-auto mb-8">
+        <div class="w-full md:w-3/4 mx-auto mb-8">
           {{ content }}
         </div>
 
-        <div class="w-3/4 mx-auto mb-8">
+        <div class="w-full md:w-3/4 mx-auto mb-8">
           {% if page.comments %}
             {% include disqus.html %}
           {% endif %}
