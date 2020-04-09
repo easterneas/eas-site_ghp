@@ -1,8 +1,12 @@
+{% if page.image %}
+<header class="bg-gray-700 text-white py-48 bg-center bg-cover" style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.5)), url({{ page.image }});" role="banner">
+{% else %}
 <header class="bg-gray-700 text-white py-48" role="banner">
+{% endif %}
     <div class="container flex flex-col mx-auto justify-center h-auto w-screen">
         <span class="py-6">
-                <h1 class="text-4xl lg:text-6xl" align="center">{{ page.title }}</h1>
-                <h3 class="text-xl lg:text-2xl" align="center">{{ page.summary }}</h3>
+            <h1 class="text-4xl lg:text-6xl mb-4" align="center">{{ page.title }}</h1>
+            <h3 class="text-xl lg:text-2xl" align="center">{{ page.summary }}</h3>
         </span>
     </div>
 </header>
