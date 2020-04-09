@@ -33,7 +33,7 @@
       <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {% for post in site.posts limit: 4 %}
         <!-- Post card -->
-        <a href="{{ post.permalink }}">
+        <a href="{{ post.url }}">
           <div class="bg-gray-200 rounded-lg hover:bg-gray-400">
             {% if post.image %}
             <div class="bg-cover bg-center bg-no-repeat w-full h-64" style="background-image: url({{ post.image }})">
