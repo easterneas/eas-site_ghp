@@ -14,10 +14,16 @@ h1, h2, h3, h4, h5, h6 {
 /* body {
     @apply mx-auto;
 }
-
-
-
  */
+
+
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
 
 .container {
     @apply mx-auto;
@@ -28,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
     @apply fixed w-full flex items-center justify-between bg-black px-4 h-16;
 } */
 
-span > a:first-child {
+span>a:first-child {
     @apply ml-0;
 }
 
