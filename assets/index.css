@@ -29,6 +29,10 @@ span>a:first-child {
     @apply ml-0;
 }
 
+main > div.container > div > p {
+    @apply mb-4;
+}
+
 /* Size-specific */
 
 /* @screen sm {
