@@ -2,7 +2,7 @@
 # post options
 layout: post
 title: Fresh Air for My Blog!
-summary: Finally, after some time tinkering, I can get my own blog up and running again.
+description: Finally, after some time tinkering, I can get my own blog up and running again.
 
 # permalink, categories, tags
 categories: [Site Updates]
