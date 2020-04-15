@@ -8,10 +8,10 @@
     </div>
     <div class="md:text-right col-span-1">
         <div class="w-screen px-8 border-t-2 bg-gray-900 border-white text-white">
-            <div id="left" class="text-sm flex justify-between">
+            <div id="left" class="text-sm text-center">
                 {% for menu in site.data.nav %}
                 <a href="{{ menu.link }}"
-                    class="inline-block py-4 text-white hover:text-gray-500">{{ menu.name }}</a>
+                    class="inline-block px-2 py-4 text-white hover:text-gray-500">{{ menu.name }}</a>
                 {% endfor %}
             </div>
         </div>
