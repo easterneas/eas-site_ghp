@@ -18,7 +18,6 @@ github:
   profile: "https://github.com/easterneas"
   repository: "https://github.com/easterneas/easterneas.github.io"
 
-
 include:
   - "assets"
 
@@ -26,3 +25,10 @@ exclude:
   - "*.config.js"
   - "package*.json"
   - "node_modules"
+
+# PWA settings
+color: "#000000"
+url: "https://eas.web.id"
+language: "en"
+lang_direction: "ltr"
+short_name: "e"
