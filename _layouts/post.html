@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    {% include head.analytics.html %}
+    {% include head.js.html %}
     {% include head.meta.html %}
-    {% include head.title.post.html %}
+
+    {% if page.title %}
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {% else %}
+    <title>{{ site.title }}</title>
+    {% endif %}
+    
     {% include head.styles.html %}
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     {% include nav.html %}
 
     {% include header.post.html %}
@@ -63,5 +71,7 @@
     {% include post.aside.html %}
 
     {% include footer.html %}
+    
+    {% include js.html %}
   </body>
 </html>

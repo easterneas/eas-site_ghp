@@ -2,13 +2,20 @@
 <html lang="{{ site.lang | default: "en-US" }}">
 
 <head>
-  {% include head.analytics.html %}
+  {% include head.js.html %}
   {% include head.meta.html %}
-  {% include head.title.blog.html %}
+
+  {% if page.title %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% else %}
+  <title>{{ site.title }}</title>
+  {% endif %}
+
   {% include head.styles.html %}
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
   {% include nav.html %}
 
@@ -40,8 +47,8 @@
             <div class="col-span-1 md:col-span-2 px-8 py-4">
               <h3 class="text-2xl mb-4">{{ post.title }}</h3>
               <p class="mb-4">{{ post.description }}</p>
-              <a href="{{ post.url }}"
-                class="inline-block uppercase border border-black rounded-full px-4 py-2">Read More</a>
+              <a href="{{ post.url }}" class="inline-block uppercase border border-black rounded-full px-4 py-2">Read
+                More</a>
             </div>
           </div>
           {% endfor %}
@@ -53,36 +60,37 @@
               <h3 class="text-3xl text-gray-500">Archives</h3>
               <!-- source: https://stackoverflow.com/questions/19086284/jekyll-liquid-templating-how-to-group-blog-posts-by-year -->
               {% for post in site.posts  %}
-                {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-                {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
-                {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-                {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+              {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+              {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+              {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+              {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
 
-                {% if forloop.first %}
-                  <h4 class="text-2xl text-gray-500" id="{{ this_year }}-ref">{{this_year}}</h4>
-                  <h5 class="text-lg mt-2 text-gray-500" id="{{ this_year }}-{{ this_month }}-ref">{{ this_month }}</h5>
-                  <ul>
+              {% if forloop.first %}
+              <h4 class="text-2xl text-gray-500" id="{{ this_year }}-ref">{{this_year}}</h4>
+              <h5 class="text-lg mt-2 text-gray-500" id="{{ this_year }}-{{ this_month }}-ref">{{ this_month }}</h5>
+              <ul>
                 {% endif %}
 
-                <li><a href="{{ post.url }}" class="my-2 block text-gray-600 hover:text-gray-500">{{ post.title }}</a></li>
+                <li><a href="{{ post.url }}" class="my-2 block text-gray-600 hover:text-gray-500">{{ post.title }}</a>
+                </li>
 
                 {% if forloop.last %}
-                  </ul>
+              </ul>
+              {% else %}
+              {% if this_year != next_year %}
+              </ul>
+              <h4 class="text-2xl mt-4 text-gray-500" id="{{ next_year }}-ref">{{next_year}}</h4>
+              <h5 class="text-lg mt-2 text-gray-500" id="{{ next_year }}-{{ next_month }}-ref">{{ next_month }}</h5>
+              <ul>
                 {% else %}
-                  {% if this_year != next_year %}
-                    </ul>
-                    <h4 class="text-2xl mt-4 text-gray-500" id="{{ next_year }}-ref">{{next_year}}</h4>
-                    <h5 class="text-lg mt-2 text-gray-500" id="{{ next_year }}-{{ next_month }}-ref">{{ next_month }}</h5>
-                    <ul>
-                  {% else %}
-                    {% if this_month != next_month %}
-                      </ul>
-                      <h5 class="text-lg mt-4 text-gray-500" id="{{ this_year }}-{{ next_month }}-ref">{{ next_month }}</h5>
-                      <ul>
-                    {% endif %}
-                  {% endif %}
+                {% if this_month != next_month %}
+              </ul>
+              <h5 class="text-lg mt-4 text-gray-500" id="{{ this_year }}-{{ next_month }}-ref">{{ next_month }}</h5>
+              <ul>
                 {% endif %}
-              {% endfor %}
+                {% endif %}
+                {% endif %}
+                {% endfor %}
             </div>
           </div>
         </aside>
@@ -92,10 +100,9 @@
     </div>
   </main>
 
-  <aside>
-  </aside>
-
   {% include footer.html %}
+
+  {% include js.html %}
 </body>
 
 </html>
