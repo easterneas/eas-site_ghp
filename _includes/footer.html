@@ -1,13 +1,62 @@
-<footer class="h-auto py-8 bg-black text-white">
+{% if page.url != '/buy-me-coffee' %}
+<div class="w-screen h-auto bg-gray-400">
     <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="grid grid-cols-3 gap-0 md:gap-4 py-8 md:text-xl">
+            <div class="text-left col-span-2">
+                <span class="inline-block font-bold px-4 py-2">
+                    Want to support me?
+                </span>
+            </div>
+            <div class="text-right">
+                <a href="/buy-me-coffee" class="inline-block px-4 py-2 border border-gray-900 bg-white shadow hover:shadow-xl transition-shadow duration-100">
+                    I'd love to!
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<footer class="h-auto py-8 md:py-12 lg:py-16 bg-black text-white text-sm">
+    <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 md:gap-8">
+            <!-- Upper Footer -->
             <div class="my-2 md:my-0">
-                <span class="block site-footer-credits">Hosted on <a href="https://pages.github.com">GitHub Pages</a></span>
+                <span class="block text-base">Site Menu</span>
+                <ul>
+                    {% for menu in site.data.nav %}
+                    <li>
+                        <a href="{{ menu.link }}" class="text-gray-600 hover:text-gray-300 transition-colors duration-200 ease-in-out">
+                            {{ menu.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <div class="my-2 md:my-0 text-left md:text-right">
-                <span class="block site-footer-credits">Copyright &copy; 2019-{{ 'now' | date: '%Y' }}</span>
-                <span class="block site-footer-credits">Made with ♥ by <a href="https://github.com/easterneas">me</a> :)</span>
+            <div class="my-2 md:my-0 md:col-span-1 lg:col-span-2">
+                <span class="block text-base">Let's Social!</span>
+                {% for social in site.data.social_media %}
+                    <a href="{{ social.link }}" class="inline-block mr-2 text-gray-600 hover:text-gray-300 transition-colors duration-200 ease-in-out text-2xl">
+                        <ion-icon name="{{ social.icon }}" title="{{ social.title }}"></ion-icon>
+                    </a>
+                {% endfor %}
             </div>
+            <div class="my-2 md:my-0 md:col-span-1 lg:col-span-2">
+                <h2 class="text-xl">About Me</h2>
+                <span class="block">I'm a self-taught web developer who loves to learn new things tech.</span>
+                <span class="block">I also like to experiment things.</span>
+            </div>
+            <!-- End: Upper Footer -->
+            
+            <!-- Lower Footer -->
+            <div class="my-2 md:my-0 md:col-span-1 lg:col-span-2">
+                <div class="my-0 md:mb-2 md:mt-4 h-16 w-16 bg-contain bg-left bg-no-repeat"
+                    style="background-image: url(/assets/img/svg/logo.svg);">
+                </div>
+                <span class="block">Copyright &copy; 2019-{{ 'now' | date: '%Y' }}</span>
+                <span class="block">Hosted on <a href="https://pages.github.com">GitHub Pages</a>. Made with ♥ by <a href="https://github.com/easterneas">me</a> :)</span>
+            </div>
+            <!-- End: Lower Footer -->
         </div>
     </div>
 </footer>
