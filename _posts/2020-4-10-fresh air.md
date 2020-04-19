@@ -9,6 +9,12 @@ categories: [Site Updates]
 tags: [Site Updates, Jekyll, HTML]
 image: 
 
+# sharing options
+sharing:
+  fb: After 12 years of vacuum, finally I can lay my hands on writing things on my blog again!
+  li: After 12 years of vacuum, finally I can lay my hands on writing things on my blog again!
+  tw: After 12 years of vacuum, now I can post things again on my blog!
+
 # other options
 comments: true
 ---
