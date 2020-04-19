@@ -1,6 +1,9 @@
-<nav class="w-screen h-16 fixed bg-black z-50">
+<div x-data="{ onTop: true }">
+<nav class="w-screen h-16 fixed z-50 transition-colors duration-200"
+    @scroll.window="onTop = (window.pageYOffset > 50) ? false : true">
     <!-- Desktop -->
     {% include nav.desktop.html %}
     <!-- Mobile -->
     {% include nav.mobile.html %}
 </nav>
+</div>

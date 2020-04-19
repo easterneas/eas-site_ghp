@@ -1,18 +1,25 @@
-<div class="hidden lg:block container mx-auto">
+<div class="hidden lg:block transition-colors duration-200"
+:class="{ 'bg-white shadow-md text-black' : !onTop, 'bg-transparent text-white' : onTop }">
+<div class="container mx-auto">
     <div class="grid grid-cols-5">
         <div class="mx-0 w-16">
             <a href="/"
-                class="grid grid-cols-2 w-20 items-center text-white h-16">
-                <div class="h-full bg-contain bg-left bg-no-repeat"
-                    style="background-image: url(/assets/img/svg/logo.svg);">
+                class="grid grid-cols-2 w-20 items-center h-16">
+                <div class="h-full"
+                    :class="{ 'bg-white': onTop, 'bg-black': !onTop }"
+                    style="mask-image: url(/assets/img/svg/logo.svg); -webkit-mask-image: url(/assets/img/svg/logo.svg);
+                    mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat;
+                    mask-position: center; -webkit-mask-position: center;">
                 </div>
                 <div class="inline-block ml-4 font-bold text-2xl tracking-wide">Eas</div>
             </a>
         </div>
-        <div class="col-span-4 text-right">
+        <div class="col-span-4 text-right"
+        :class="{ 'text-white' : onTop, 'text-black' : !onTop }">
             {% for menu in site.data.nav %}
-            <a href="{{ menu.link }}" class="inline-block text-white hover:text-gray-500 py-5 ml-4">{{ menu.name }}</a>
+            <a href="{{ menu.link }}" class="inline-block hover:text-gray-500 py-5 ml-4">{{ menu.name }}</a>
             {% endfor %}
         </div>
     </div>
+</div>
 </div>
