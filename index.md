@@ -6,3 +6,4 @@ description: Self-taught web developer.<br>Loves to learn new things.
 js: js.index.html
 ---
 
+<!-- Photo by Nikita Kachanovsky on Unsplash -->
