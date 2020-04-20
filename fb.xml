@@ -1,5 +1,10 @@
 ---
-layout: posts_feed
-sharing_site: fb
+# basic page options
 permalink: feeds/fb.xml
+
+# advanced page options
+layout: posts_feed
+
+# custom page options
+sharing_site: fb
 ---
