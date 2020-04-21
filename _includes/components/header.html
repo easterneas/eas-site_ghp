@@ -10,8 +10,13 @@
         <div class="container flex flex-col mx-auto justify-center w-screen text-white">
             <span class="py-6">
                 <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
-                <h2 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
-                <h3 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
+                <h2 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
+                <h3 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
+                {% if page.counter %}
+                {% assign words = content | number_of_words %}
+                {% assign duration = words | divided_by: 180 %}
+                <h6 class="text-xs tracking-widest" align="center">{{ page.date | date_to_string }} | {{ duration }}+ minute{% if duration != 1 %}s{% endif %} read</h3>
+                {% endif %}
             </span>
             {% if page.header.link.show %}
             <span class="pt-12 pb-24 lg:py-4 z-40">
