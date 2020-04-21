@@ -46,9 +46,9 @@
             <!-- Post card -->
             <a href="{{ post.url }}">
               <div class="bg-gray-800 rounded-lg hover:bg-gray-900 transition-colors duration-200 shadow-lg">
-                {% if post.image %}
-                <div class="bg-cover bg-center bg-no-repeat w-full h-64"
-                  style="background-image: url({{ post.image }})">
+                {% if post.header.image %}
+                <div class="bg-cover bg-center bg-no-repeat w-full h-64 rounded-t-lg"
+                  style="background-image: url({{ post.header.image }})">
                 </div>
                 {% else %}
                 <div class="bg-contain bg-center bg-no-repeat w-full h-64"
