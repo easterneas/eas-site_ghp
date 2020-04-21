@@ -1,0 +1,84 @@
+---
+# basic page options
+permalink: /about
+title: About Me
+description: 
+
+# advanced page options
+layout: page
+css:
+js: js.index.html
+header:
+  enabled: true
+  fullscreen: false
+  image:
+  unsplash:
+    author: 
+    username: 
+  title:
+  description:
+  link:
+    name:
+    url:
+---
+
+<div class="mb-8">
+    <h3 class="text-3xl mb-8">Hi! I'm Eas.</h3>
+    <p class="text-lg">
+      I'm Andreas, but you can call me Eas. I'm the self-taught web developer who loves to learn new things.
+    </p>
+    <p class="text-lg">
+      I mainly develop web-based applications. Sometimes, I also kill some time by creating HTML templates for WordPress and Jekyll, and also create YouTube videos when my idea can't be fitted into words.
+    </p>
+    <p class="text-lg">
+      My aim is to make a good, open-source web platform that everyone can use.
+    </p>
+</div>
+
+<div class="mb-8">
+    <h3 class="text-3xl">What I do</h3>
+</div>
+
+{% for portfolio in site.data.portfolio %}
+<div class="mb-8">
+    <h2 class="mb-4 text-center text-2xl sm:text-3xl">{{ portfolio.name }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for list in portfolio.list %}
+        <div class="bg-gray-200 rounded-lg">
+            {% if list.image %}
+            <div class="bg-cover bg-center bg-no-repeat w-full h-64" style="background-image: url({{ list.image }})"></div>
+            {% else %}
+            <div class="bg-contain bg-center bg-no-repeat w-full h-64" style="background-image: url(/assets/img/svg/logo.svg),linear-gradient(rgba(100,100,100,1),rgba(100,100,100,0))"></div>
+            {% endif %}
+            <div class="p-4">
+                <h4 class="mb-2">{{ list.name }}</h4>
+                {% if list.status %}
+                    {% if list.status == 'deployed' %}
+                        {% assign status = 'bg-green-400 text-green-900' %}
+                    {% elsif list.status == 'active' %}
+                        {% assign status = 'bg-blue-400 text-blue-900' %}
+                    {% elsif list.status == 'planned' %}
+                        {% assign status = 'bg-purple-400 text-purple-900' %}
+                    {% elsif list.status == 'under development' %}
+                        {% assign status = 'bg-yellow-400 text-yellow-900' %}
+                    {% elsif list.status == 'archived' %}
+                        {% assign status = 'bg-gray-400 text-gray-900' %}
+                    {% endif %}
+
+                    <span class="uppercase text-xs px-2 py-1 my-2 inline-block rounded-full text-white {{status}}">
+                        {{list.status}}
+                    </span>
+                {% endif %}
+                <p class="text-sm mb-2">{{ list.description }}</p>
+                {% if list.link %}
+                <a class="text-sm inline-block border border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 my-2" href="{{ list.link }}">Visit {{ list.name }}</a>
+                {% endif %}
+                {% if list.github %}
+                <a class="text-sm inline-block border border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white px-4 py-2 my-2" href="{{ list.github }}">See on GitHub</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
