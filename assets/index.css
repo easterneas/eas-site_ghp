@@ -1,9 +1,10 @@
 body {
     font-family: 'Lato', sans-serif;
+    overflow-y: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 @tailwind base;
@@ -68,5 +69,16 @@ main > div.container > div > p {
         @apply mt-0;
     } 
 } */
+
+/* Per Page Basis */
+
+/* - Post */
+#article a {
+    @apply text-blue-700;
+}
+
+#article a:hover {
+    @apply text-blue-900;
+}
 
 @tailwind utilities;
