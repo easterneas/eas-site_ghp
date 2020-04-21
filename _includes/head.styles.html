@@ -1,2 +1,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/{{ site.data.manifest['docs.css'] }}">
+
+<style>
+{% if page.header.image %}
+.simpleParallax {
+    height: {% if page.header.fullscreen %} 100vh {% else %} 60vh{% endif %};
+}
+{% endif %}
+
+header,
+header div#content,
+header div#content > div.container {
+    {% if page.header.fullscreen %}
+    height: 100vh;
+    {% else %}
+    height: 60vh;
+    {% endif %}
+}
+
+header .simpleParallax {
+    overflow: hidden;
+}
+
+header div#content {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    top: 0;
+
+    {% if page.header.image %}
+    background-image: linear-gradient({% if page.header.gradient.rotate %} {{ page.header.gradient.rotate }}, {% endif %} rgba(0,0,0,1), rgba(0,0,0,0.5));
+    {% endif %}
+}
+</style>

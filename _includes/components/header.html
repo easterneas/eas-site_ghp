@@ -1,22 +1,27 @@
-{% if page.header.image %}
+<header class="text-white {% if page.header.image %} {% else %}bg-gray-700 {% if page.header.fullscreen %} h-screen {% endif %} {% endif %}">
+<!-- {% if page.header.image %}
 <header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %} bg-center bg-cover bg-fixed" style="background-image: linear-gradient({% if page.header.gradient.rotate %} {{ page.header.gradient.rotate }}, {% endif %} rgba(0,0,0,1), rgba(0,0,0,0.5)), url({{ page.header.image }});" role="banner">
 {% else %}
 <header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %}" role="banner">
-{% endif %}
-    <div class="container flex flex-col mx-auto justify-center {% if page.header.fullscreen %} h-screen {% else %} h-auto {% endif %} w-screen">
-        <span class="py-6">
-            <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
-            <h2 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
-            <h3 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
-        </span>
-        {% if page.header.link.show %}
-        <span class="pt-12 pb-24 lg:py-4 z-40">
-            <a href="{{ page.header.link.url }}" class="inline-block border border-white hover:bg-white hover:text-gray-700 rounded-full px-4 py-2">{{ page.header.link.name }}</a>
-        </span>
-        {% endif %}
+{% endif %} -->
+    <img id="background" class="parallax" src="{{ page.header.image | absolute_url }}">
 
-        {% if page.header.fullscreen %}
-        <ion-icon name="chevron-down-outline" class="absolute bottom-0 pb-5 self-center align-bottom text-4xl"></ion-icon>
-        {% endif %}
+    <div id="content" class="w-full">
+        <div class="container flex flex-col mx-auto justify-center w-screen text-white">
+            <span class="py-6">
+                <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
+                <h2 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
+                <h3 class="text-xl lg:text-2xl" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
+            </span>
+            {% if page.header.link.show %}
+            <span class="pt-12 pb-24 lg:py-4 z-40">
+                <a href="{{ page.header.link.url }}" class="inline-block border border-white hover:bg-white hover:text-gray-700 rounded-full px-4 py-2">{{ page.header.link.name }}</a>
+            </span>
+            {% endif %}
+
+            {% if page.header.fullscreen %}
+            <ion-icon name="chevron-down-outline" class="absolute bottom-0 pb-5 self-center align-bottom text-4xl"></ion-icon>
+            {% endif %}
+        </div>
     </div>
 </header>
