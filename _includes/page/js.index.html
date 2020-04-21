@@ -1,28 +1,33 @@
 <script>
-
 function portfolio() {
     data = {
         portfolio: [
-        {% assign loop = 0 %}
-        {% for portfolio in site.data.portfolio limit:1 %}
-          {% assign data = portfolio.list | reverse %}
-          {% for list in data %}
-            {% if list.status == 'planned' %}
-            {% continue %}
-            {% endif %}
-            {% if loop > 3 %}
-            {% break %}
-            {% else %}
-            {% assign loop = loop | plus:1 %}
-            {% endif %}
-                {
-                    image: "{{ list.image }}",
-                    name: "{{ list.name }}",
-                    status: "{{ list.status }}",
-                    link: "{{ list.link }}",
-                    github: "{{ list.github }}",
-                },
-        {% endfor %}
+        {% for portfolio in site.data.portfolio %}
+            {
+                name: "{{ portfolio.name }}",
+                data: [
+                    {% assign loop = 1 %}
+                    {% assign data = portfolio.list | reverse %}
+                    {% for list in data %}
+                        {% if list.status == 'planned' %}
+                            {% continue %}
+                        {% endif %}
+                        {% if loop > 3 %}
+                            {% break %}
+                        {% endif %}
+                        {
+                            name: "{{ list.name }}",
+                            image: "{{ list.image }}",
+                            {% if list.github %}
+                            link: "{{ list.github | absolute_url }}",
+                            {% elsif list.link %}
+                            link: "{{ list.link | absolute_url }}",
+                            {% endif %}
+                        },
+                        {% assign loop = loop | plus: 1 %}
+                    {% endfor %}
+                ]
+            },
         {% endfor %}
         ],
         dataIndex: 0
