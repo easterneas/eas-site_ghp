@@ -1,46 +1,81 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    {% include head.js.html %}
-    {% include head.meta.html %}
 
-    {% if page.title %}
-    <title>{{ page.title }} | {{ site.title }}</title>
-    {% else %}
-    <title>{{ site.title }}</title>
-    {% endif %}
-    
-    {% include head.styles.html %}
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<head>
+  {% include head.js.html %}
+  {% include head.meta.html %}
 
-    {% include nav.html %}
+  {% if page.title %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% else %}
+  <title>{{ site.title }}</title>
+  {% endif %}
 
-    {% include header.post.html %}
+  {% include head.styles.html %}
+</head>
 
-    <main role="main">
-      <div class="container py-8">
+<body>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-        <div class="w-full md:w-3/4 mx-auto mb-8">
-          {{ content }}
+  {% include nav.html %}
+
+  {% include components/header.html %}
+
+  <main role="main">
+    <div class="container py-16">
+
+      <div id="article" class="w-full md:w-3/4 mx-auto mb-8">
+        {{ content }}
+
+        <hr class="w-8 h-1 bg-gray-400 mt-8 mx-auto">
+      </div>
+
+      <div class="w-full md:w-3/4 mx-auto mb-8 md:flex">
+        <img class="h-16 w-16 md:h-24 md:w-24 rounded-full md:mr-6" src="/assets/img/photo.jpg" alt="My Face :)">
+        <div class="text-center md:text-left">
+          <h4 class="text-xl">Hi, I'm Eas!</h4>
+          <p class="text-gray-800">I'm a self-taught web developer, who loves to learn new things web. My aim is to
+            make a good, open-source web platform that everyone can use.</p>
+          <div>
+            {% for social in site.data.social_media %}
+            <a href="{{ social.link }}"
+              class="inline-block mr-2 text-gray-600 {% cycle 'hover:text-blue-700','hover:text-blue-600','hover:text-red-600' %} transition-colors text-xl">
+              <ion-icon name="{{ social.icon }}" title="{{ social.title }}"></ion-icon>
+            </a>
+            {% endfor %}
+          </div>
         </div>
+      </div>
 
-        <div class="w-full md:w-3/4 mx-auto mb-8">
-          {% if page.comments %}
-            {% include disqus.html %}
-          {% endif %}
-        </div>
-
-        <div class="mb-8">
-          <h2 class="mb-4 text-center text-2xl sm:text-3xl lg:text-4xl">My Latest Posts</h2>
-        </div>
-
-        
-
+      <div class="mb-8">
+        <h4 class="text-center text-xl sm:text-2xl">
+          I think you'll enjoy this
+        </h4>
+      </div>
+      <!-- https://blog.webjeda.com/jekyll-related-posts/#whats-wrong-with-jekyll-related_posts- -->
+      <!-- with slight modifications -->
       <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {% for post in site.posts limit: 4 %}
-          <!-- Post card -->
+        {% assign maxRelated = 4 %}
+        {% assign minCommonTags =  2 %}
+        {% assign maxRelatedCounter = 0 %}
+
+        {% for post in site.posts %}
+
+        {% assign sameTagCount = 0 %}
+        {% assign commonTags = '' %}
+
+        {% for tag in post.tags %}
+        {% if post.url != page.url %}
+        {% if page.tags contains tag %}
+        {% assign sameTagCount = sameTagCount | plus: 1 %}
+        {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+        {% assign commonTags = commonTags | append: tagmarkup %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% if sameTagCount >= minCommonTags %}
+        <div>
           <a href="{{ post.url }}">
             <div class="bg-gray-200 rounded-lg hover:bg-gray-400">
               {% if post.image %}
@@ -57,21 +92,25 @@
               </div>
             </div>
           </a>
-          {% endfor %}
         </div>
-  
-        <div class="text-center">
-          <a href="/blog" class="mx-auto inline-block px-4 py-2 border border-black hover:text-white hover:bg-black rounded-full uppercase">
-            Other posts
-          </a>
-        </div>
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+        {% break %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
       </div>
-    </main>
 
-    {% include post.aside.html %}
+      <div class="w-full md:w-3/4 mx-auto mb-8">
+        {% if page.comments %}
+        {% include components/disqus.html %}
+        {% endif %}
+      </div>
+  </main>
 
-    {% include footer.html %}
-    
-    {% include js.html %}
-  </body>
+  {% include footer.html %}
+
+  {% include js.html %}
+</body>
+
 </html>

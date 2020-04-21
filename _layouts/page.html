@@ -17,7 +17,9 @@
 
     {% include nav.html %}
 
-    {% include header.page.html %}
+    {% if page.header.enabled %}
+      {% include components/header.html %}
+    {% endif %}
 
     <main role="main">
       <div class="container py-8">

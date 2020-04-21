@@ -19,11 +19,78 @@
 
   {% include nav.html %}
 
-  {% include header.default.html %}
+  {% if page.header.enabled %}
+    {% include components/header.html %}
+  {% endif %}
 
   <main role="main">
+    <!-- Latest Post -->
+    <div class="h-auto py-8 bg-gray-700 text-white">
+      <div class="container grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div class="text-center md:text-left col-span-1 md:col-span-2 flex flex-col justify-center">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">Latest Posts</h2>
+          <p class="text-lg mb-2">
+            My latest data reflects of what I'm doing so far,<br>in my skill development.
+          </p>
+          <div>
+            <a href="/blog"
+              class="px-4 py-2 transition-all duration-100 text-black shadow text-lg bg-gray-100 hover:bg-gray-500 hover:shadow-md">
+              See My Other Posts
+            </a>
+          </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-3">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for post in site.posts limit: 4 %}
+            <!-- Post card -->
+            <a href="{{ post.url }}">
+              <div class="bg-gray-800 rounded-lg hover:bg-gray-900 transition-colors duration-200 shadow-lg">
+                {% if post.image %}
+                <div class="bg-cover bg-center bg-no-repeat w-full h-64"
+                  style="background-image: url({{ post.image }})">
+                </div>
+                {% else %}
+                <div class="bg-contain bg-center bg-no-repeat w-full h-64"
+                  style="background-image: url(/assets/img/svg/logo.svg)">
+                </div>
+                {% endif %}
+                <div class="p-4 text-white bg-gray-900 rounded-b-lg">
+                  <h3 class="text-2xl mb-4">{{ post.title }}</h3>
+                  <p>{{ post.description }}</p>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Latest Post -->
+
+    <!-- About -->
+    <div class="bg-gray-400 h-auto py-16">
+      <div class="text-center w-2/4 mx-auto">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl mb-8">Who I Am</h2>
+        <p class="text-lg mb-8">
+          I'm Andreas, but you can call me Eas. I'm the self-taught web developer who loves to learn new things.
+        </p>
+        <p class="text-lg mb-8">
+          I mainly develop web-based applications. Sometimes, I also kill some time by creating HTML templates for WordPress and Jekyll, and also create YouTube videos when my idea can't be fitted into words.
+        </p>
+        <p class="text-lg mb-8">
+          My aim is to make a good, open-source web platform that everyone can use.
+        </p>
+        <!-- <a href="/about-me"
+          class="px-4 py-2 transition-all duration-100 shadow text-lg bg-gray-100 hover:bg-gray-500 hover:shadow-md">
+          Know Me More
+        </a> -->
+      </div>
+    </div>
+    <!-- End: About -->
+
     <!-- Creations -->
-    <div class="container pt-8 mb-8 grid grid-cols-1 md:grid-cols-5">
+    <div class="container py-8 grid grid-cols-1 md:grid-cols-5 gap-8">
       <div class="mb-8 text-center md:text-left col-span-1 md:col-span-2 flex flex-col justify-center">
         <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">My Latest Creations</h2>
         <p class="text-lg mb-2">
@@ -40,40 +107,52 @@
       <div class="mb-8 col-span-1 md:col-span-3">
         <!-- https://codepen.io/simeonunder2/pen/povGyVJ -->
         <!-- With some modifications -->
-        <div class="md:max-h-64 w-full flex flex-col justify-center items-center mb-16">
+        <div class="h-auto w-full flex flex-col justify-center items-center mb-16">
           <div class="w-full mx-auto relative" x-data="portfolio()">
             <!-- Slides -->
             <template x-for="(data, index) in portfolio" :key="index">
-              <div x-show="dataIndex === index"
-                class="h-auto md:h-64 grid grid-cols-1 md:grid-cols-3 items-center bg-gray-300 rounded-lg">
-                <template x-if="data.image != ''">
-                  <div
-                    class="rounded-t-lg md:rounded-t-none md:rounded-l-lg col-span-1 bg-gray-600 h-64 md:h-full w-full bg-no-repeat bg-cover bg-center"
-                    :style="'background-image: url('+ data.image +')'">
-                  </div>
-                </template>
-                <template x-if="!data.image">
-                  <div
-                    class="rounded-t-lg md:rounded-t-none md:rounded-l-lg col-span-1 bg-gray-600 h-64 md:h-full w-full bg-no-repeat bg-contain bg-center"
-                    style="background-image: url(/assets/img/svg/logo.svg)">
-                  </div>
-                </template>
-                <div class="col-span-1 md:col-span-2 p-4 md:pr-8 rounded-b-lg">
-                  <span class="block mb-4 text-2xl font-bold text-gray-700" x-text="data.name"></span>
-                  <template x-if="data.link != ''">
-                    <a :href="data.link"
-                      class="inline-block text-sm border border-gray-700 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-700 hover:text-white ease-in-out duration-200">
-                      Visit <span x-text="data.name"></span>
-                    </a>
-                  </template>
-                  
-                  <template x-if="data.github != ''">
-                    <a :href="data.github"
-                      class="inline-block text-sm border border-gray-700 text-gray-700 rounded-full px-4 py-2 hover:bg-gray-700 hover:text-white ease-in-out duration-200">
-                      See on GitHub
-                    </a>
+
+              <div x-show="dataIndex === index" class="h-auto grid grid-rows-4 items-center p-8 rounded-lg">
+
+                <!-- Title -->
+                <h4 class="block text-3xl mb-4" x-text="data.name"></h4>
+
+                <!-- Content -->
+                <div class="row-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <template x-for="(item, index) in data.data" :key="index">
+
+                    <div class="bg-gray-300 rounded grid grid-rows-3">
+
+                      <!-- Image -->
+                      <div class="row-span-2">
+                        <template x-if="item.image != ''">
+                          <div class="h-full rounded-t bg-gray-600 bg-no-repeat bg-cover bg-center"
+                            :style="'background-image: url('+ item.image +')'">
+                          </div>
+                        </template>
+                        <template x-if="!item.image">
+                          <div class="h-full rounded-t bg-gray-600 bg-no-repeat bg-contain bg-center"
+                            style="background-image: url(/assets/img/svg/logo.svg)">
+                          </div>
+                        </template>
+                      </div>
+
+                      <!-- Title -->
+                      <div class="row-span-1 p-4">
+                        <template x-if="item.link != ''">
+                          <a :href="item.link">
+                            <h5 class="text-lg" x-text="item.name"></h5>
+                          </a>
+                        </template>
+                        <template x-if="!item.link">
+                          <h5 class="text-lg" x-text="item.name"></h5>
+                        </template>
+                      </div>
+
+                    </div>
                   </template>
                 </div>
+
               </div>
             </template>
 
@@ -81,14 +160,14 @@
             <div class="absolute inset-0 flex pointer-events-none">
               <div class="flex items-center justify-start w-1/2">
                 <button
-                  class="pointer-events-auto bg-gray-500 text-white hover:bg-gray-800 font-bold hover:shadow-lg rounded-full w-12 h-12 -ml-6"
+                  class="pointer-events-auto mt-12 bg-gray-500 text-white hover:bg-gray-800 font-bold hover:shadow-lg rounded-full w-12 h-12 -ml-6"
                   x-on:click="dataIndex = dataIndex === 0 ? portfolio.length - 1 : dataIndex - 1">
                   &#8592;
                 </button>
               </div>
               <div class="flex items-center justify-end w-1/2">
                 <button
-                  class="pointer-events-auto bg-gray-500 text-white hover:bg-gray-800 font-bold hover:shadow rounded-full w-12 h-12 -mr-6"
+                  class="pointer-events-auto mt-12 bg-gray-500 text-white hover:bg-gray-800 font-bold hover:shadow rounded-full w-12 h-12 -mr-6"
                   x-on:click="dataIndex = dataIndex === portfolio.length - 1 ? 0 : dataIndex + 1">
                   &#8594;
                 </button>
@@ -116,47 +195,6 @@
 
     <!-- Skills -->
     <!-- End: Skills -->
-
-    <!-- Latest Post -->
-    <div class="container mb-8 grid grid-cols-1 md:grid-cols-5">
-      <div class="mb-8 text-center md:text-left col-span-1 md:col-span-2 flex flex-col justify-center">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl mb-4">Here's My Latest Post</h2>
-        <p class="text-lg mb-2">
-          My latest data reflects of what I'm doing so far,<br>in my skill development.
-        </p>
-        <div>
-          <a href="/blog"
-            class="px-4 py-2 transition-all duration-100 shadow text-lg bg-gray-100 hover:bg-gray-500 hover:shadow-md">
-            See My Other Posts
-          </a>
-        </div>
-      </div>
-
-      <div class="mb-8 col-span-1 md:col-span-3">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {% for post in site.posts limit: 4 %}
-          <!-- Post card -->
-          <a href="{{ post.url }}">
-            <div class="bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200">
-              {% if post.image %}
-              <div class="bg-cover bg-center bg-no-repeat w-full h-64" style="background-image: url({{ post.image }})">
-              </div>
-              {% else %}
-              <div class="bg-contain bg-center bg-no-repeat w-full h-64"
-                style="background-image: url(/assets/img/svg/logo.svg)">
-              </div>
-              {% endif %}
-              <div class="p-4 text-white bg-gray-900 rounded-b-lg">
-                <h3 class="text-2xl mb-4">{{ post.title }}</h3>
-                <p>{{ post.description }}</p>
-              </div>
-            </div>
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-    <!-- End: Latest Post -->
   </main>
 
   <aside>
