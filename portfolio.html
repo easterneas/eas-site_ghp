@@ -1,17 +1,47 @@
 ---
-# page layout
-layout: page
-
-# page's content-related
-title: My Portfolio
-
-# page location
+# basic page options
 permalink: /portfolio
+title: My Portfolio
+description: 
+
+# advanced page options
+layout: page
+css:
+js: js.index.html
+header:
+  enabled: true
+  fullscreen:
+  image:
+  unsplash:
+    author: 
+    username: 
+  title:
+  description:
+  link:
+    name:
+    url:
 ---
+
+<div class="mb-8">
+    <h3 class="text-3xl mb-8">Hi! I'm Eas.</h3>
+    <p class="text-lg">
+      I'm Andreas, but you can call me Eas. I'm the self-taught web developer who loves to learn new things.
+    </p>
+    <p class="text-lg">
+      I mainly develop web-based applications. Sometimes, I also kill some time by creating HTML templates for WordPress and Jekyll, and also create YouTube videos when my idea can't be fitted into words.
+    </p>
+    <p class="text-lg">
+      My aim is to make a good, open-source web platform that everyone can use.
+    </p>
+</div>
+
+<div class="mb-8">
+    <h3 class="text-3xl">What I do</h3>
+</div>
 
 {% for portfolio in site.data.portfolio %}
 <div class="mb-8">
-    <h2 class="mb-4 text-center text-2xl sm:text-3xl lg:text-4xl">{{ portfolio.name }}</h2>
+    <h2 class="mb-4 text-center text-2xl sm:text-3xl">{{ portfolio.name }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {% for list in portfolio.list %}
         <div class="bg-gray-200 rounded-lg">
