@@ -13,10 +13,14 @@
                 </div>
             </a>
         </div>
-        <div class="col-span-4 text-right"
+        <div class="col-span-4 flex flex-row justify-end items-center"
         :class="{ 'text-white' : onTop, 'text-black' : !onTop }">
             {% for menu in site.data.nav %}
-            <a href="{{ menu.link }}" class="inline-block hover:text-gray-500 py-5 ml-4">{{ menu.name }}</a>
+            <div>
+                <a href="{{ menu.link }}" class="block hover:text-gray-500 p-2 ml-4 {% if page.url == menu.link %} rounded-lg font-bold {% endif %}"
+                :class="{ 'text-white': onTop, 'text-black': !onTop }"
+                style="{% if page.url == menu.link %} background: rgba(128,128,128,0.25) {% endif %}">{{ menu.name }}</a>
+            </div>
             {% endfor %}
         </div>
     </div>
