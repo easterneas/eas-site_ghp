@@ -3,7 +3,7 @@ title: Eas
 slogan: Keep it Easy and Simple.
 description: The home of the self-taught web developer. Loves to learn new things.
 google_analytics: UA-160114482-1
-permalink: /:year/:month/:day/:title/
+permalink: /post/:year/:month/:day/:title/
 timezone: Asia/Jakarta
 
 defaults:
