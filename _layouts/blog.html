@@ -36,8 +36,8 @@
         <div class="col-span-1 md:col-span-3">
           {% for post in site.posts %}
           <!-- Post card -->
-          <div class="grid grid-cols-1 md:grid-cols-3 mb-8">
-            <div class="col-span-1 md:col-span-2 px-8 py-4 flex flex-col justify-around">
+          <div class="grid grid-cols-1 md:grid-cols-3 mb-8 shadow-md rounded-lg">
+            <div class="order-2 md:order-1 col-span-1 md:col-span-2 px-8 py-4 flex flex-col justify-around">
               <h3 class="text-3xl mb-4">{{ post.title }}</h3>
               <div>
                   <p class="mb-4">{{ post.description }}</p>
@@ -46,12 +46,12 @@
               </div>
             </div>
             {% if post.header.image %}
-            <div class="col-span-1 bg-cover bg-center bg-no-repeat w-full h-64"
-              style="background-image: linear-gradient(-90deg, rgba(100,100,100,.4), rgba(100,100,100,0.2)),url({{ post.header.image }})">
+            <div class="order-1 md:order-2 col-span-1 rounded-t-lg md:rounded-r-lg md:rounded-t-none bg-cover bg-center bg-no-repeat w-full h-64"
+              style="background-image: url({{ post.header.image }})">
             </div>
             {% else %}
-            <div class="col-span-1 rounded-lg bg-contain bg-center bg-no-repeat w-full h-64"
-              style="background-image: url({{ '/assets/img/svg/logo.svg' }}),linear-gradient(-90deg, rgba(100,100,100,.8), rgba(100,100,100,0))">
+            <div class="order-1 md:order-2 col-span-1 rounded-t-lg md:rounded-r-lg md:rounded-t-none bg-contain bg-center bg-no-repeat w-full h-64"
+              style="background-image: url({{ '/assets/img/svg/logo.svg' }}),linear-gradient(rgba(100,100,100,.8), rgba(100,100,100,0.8))">
             </div>
             {% endif %}
           </div>
