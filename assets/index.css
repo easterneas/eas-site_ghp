@@ -34,7 +34,20 @@ main > div.container > div > p {
     @apply mb-4;
 }
 
+.parallax {
+    height: 100%;
+    max-width: initial;
+    left: -50%;
+}
+
 /* Size-specific */
+
+@screen xl {
+    .parallax {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 /* @screen sm {
     h1 {
@@ -83,6 +96,7 @@ main > div.container > div > p {
 #article img {
     @apply mx-auto;
     @apply block;
+    @apply w-full;
     @apply max-w-screen-sm;
 }
 
