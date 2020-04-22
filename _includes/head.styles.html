@@ -4,22 +4,21 @@
 <style>
 {% if page.header.image %}
 header .simpleParallax {
-    height: {% if page.header.fullscreen %} 100vh {% else %} 60vh{% endif %};
+    max-height: {% if page.header.fullscreen %} 100vh {% else %} 60vh{% endif %};
+}
+{% else %}
+header {
+    height: 60vh;
 }
 {% endif %}
 
 header,
-header div#content,
-header div#content > div.container {
+header #content {
     {% if page.header.fullscreen %}
-    height: 100vh;
+    max-height: 100vh;
     {% else %}
-    height: 60vh;
+    max-height: 60vh;
     {% endif %}
-}
-
-header .simpleParallax {
-    overflow: hidden;
 }
 
 header div#content {
@@ -31,6 +30,8 @@ header div#content {
 
     {% if page.header.image %}
     background-image: linear-gradient({% if page.header.gradient.rotate %} {{ page.header.gradient.rotate }}, {% endif %} rgba(0,0,0,1), rgba(0,0,0,0.5));
+    {% else %}
+    background-image: #777;
     {% endif %}
 }
 </style>

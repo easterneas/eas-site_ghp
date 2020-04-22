@@ -4,29 +4,29 @@
 {% else %}
 <header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %}" role="banner">
 {% endif %} -->
+        
     <img id="background" class="parallax" src="{{ page.header.image | absolute_url }}">
-
-    <div id="content" class="w-full">
-        <div class="container flex flex-col mx-auto justify-center w-screen text-white">
-            <span class="py-6">
-                <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
-                <h2 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
-                <h3 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
-                {% if page.counter %}
-                {% assign words = content | number_of_words %}
-                {% assign duration = words | divided_by: 180 %}
-                <h6 class="text-xs tracking-widest" align="center">{{ page.date | date_to_string }} | {{ duration }}+ minute{% if duration != 1 %}s{% endif %} read</h3>
-                {% endif %}
-            </span>
-            {% if page.header.link.show %}
-            <span class="pt-12 pb-24 lg:py-4 z-40">
-                <a href="{{ page.header.link.url }}" class="inline-block border border-white hover:bg-white hover:text-gray-700 rounded-full px-4 py-2">{{ page.header.link.name }}</a>
-            </span>
-            {% endif %}
-
-            {% if page.header.fullscreen %}
-            <ion-icon name="chevron-down-outline" class="absolute bottom-0 pb-5 self-center align-bottom text-4xl"></ion-icon>
-            {% endif %}
-        </div>
+    <div id="content" class="flex flex-col justify-center w-screen h-full">
+            <div class="container flex flex-col mx-auto justify-center w-screen text-white pt-16">
+                    <span class="py-6">
+                        <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
+                        <h2 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.description %}{{ page.header.description }}{% else %}{{ page.description }}{% endif %}</h2>
+                        <h3 class="text-xl lg:text-2xl mb-4" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{{ page.summary }}</h3>
+                        {% if page.counter %}
+                        {% assign words = content | number_of_words %}
+                        {% assign duration = words | divided_by: 180 %}
+                        <h6 class="text-xs tracking-widest" align="center">{{ page.date | date_to_string }} | {{ duration }}+ minute{% if duration != 1 %}s{% endif %} read</h3>
+                        {% endif %}
+                    </span>
+                    {% if page.header.link.show %}
+                    <span class="pt-12 pb-24 lg:py-4 z-40">
+                        <a href="{{ page.header.link.url }}" class="inline-block border border-white hover:bg-white hover:text-gray-700 rounded-full px-4 py-2">{{ page.header.link.name }}</a>
+                    </span>
+                    {% endif %}
+        
+                    {% if page.header.fullscreen %}
+                    <ion-icon name="chevron-down-outline" class="absolute bottom-0 pb-5 self-center align-bottom text-4xl"></ion-icon>
+                    {% endif %}
+                </div>
     </div>
 </header>
