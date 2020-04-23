@@ -4,9 +4,8 @@
 {% else %}
 <header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %}" role="banner">
 {% endif %} -->
-        
     <img id="background" class="parallax" src="{{ page.header.image | absolute_url }}">
-    <div id="content" class="flex flex-col justify-center w-screen h-full">
+    <div id="content" class="flex flex-col justify-center w-full h-full">
             <div class="container flex flex-col mx-auto justify-center w-screen text-white pt-16">
                     <span class="py-6">
                         <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center" {% endif %}>{% if page.header.title %}{{ page.header.title }}{% else %}{{ page.title }}{% endif %}</h1>
