@@ -4,7 +4,11 @@
 <style>
 {% if page.header.image %}
 header .simpleParallax {
-    max-height: {% if page.header.fullscreen %} 100vh {% else %} 60vh{% endif %};
+    {% if page.header.fullscreen %}
+    max-height: 100vh;
+    {% else %}
+    max-height:60vh;
+    {% endif %}
 }
 {% else %}
 header {
