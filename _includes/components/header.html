@@ -1,10 +1,4 @@
-<header
-    class="text-white {% if page.header.image %} {% else %}bg-gray-700 {% if page.header.fullscreen %} h-screen {% endif %} {% endif %}">
-    <!-- {% if page.header.image %}
-<header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %} bg-center bg-cover bg-fixed" style="background-image: linear-gradient({% if page.header.gradient.rotate %} {{ page.header.gradient.rotate }}, {% endif %} rgba(0,0,0,1), rgba(0,0,0,0.5)), url({{ page.header.image }});" role="banner">
-{% else %}
-<header class="bg-gray-700 text-white {% if page.header.fullscreen %} {% else %} py-48 {% endif %}" role="banner">
-{% endif %} -->
+<header class="text-white {% if page.header.image %} {% else %}bg-gray-700 {% if page.header.fullscreen %} h-screen {% endif %} {% endif %}">
     <img id="background" class="parallax" src="{{ page.header.image | absolute_url }}">
     <div id="content"
         class="flex flex-col justify-center w-full {% if page.header.fullscreen %} h-screen {% else %} h-full {% endif %}">
