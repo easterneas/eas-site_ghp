@@ -1,6 +1,6 @@
 ---
 # basic post options
-title: Be Creative on GitHub Pages
+title: Be Creative with GitHub Pages
 slug: be-creative-github-pages
 description: If you started your development journey, you might want to have your own website. Good thing is, GitHub Pages is there for you!
 categories: [Web Development]
