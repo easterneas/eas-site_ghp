@@ -3,7 +3,7 @@
 permalink: feeds/linkedin.xml
 
 # advanced page options
-layout: posts_feed
+layout: linkedin_feed
 
 # custom page options
 sharing_site: li
