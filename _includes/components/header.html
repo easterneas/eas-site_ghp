@@ -1,7 +1,7 @@
-<header class="text-white {% if page.header.image %} {% else %}bg-gray-700 {% if page.header.fullscreen %} h-screen {% endif %} {% endif %}">
+<header class="text-white {% if page.header.image %} {% else %} bg-gray-700 {% if page.header.fullscreen %} h-screen {% else %} py-32 {% endif %} {% endif %}">
     <img id="background" class="parallax" src="{{ page.header.image | absolute_url }}">
     <div id="content"
-        class="flex flex-col justify-center w-full {% if page.header.fullscreen %} h-screen {% else %} h-full {% endif %}">
+        class="flex flex-col justify-center w-full {% if page.header.fullscreen %} h-screen {% else %} h-full py-32 {% endif %}">
         <div class="container flex flex-col mx-auto justify-center w-screen text-white pt-16">
             <span class="py-6">
                 <h1 class="text-4xl lg:text-6xl mb-2" {% if page.header.fullscreen %} {% else %} align="center"
