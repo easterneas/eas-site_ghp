@@ -43,6 +43,7 @@
             <h4 class="text-xl">Hi, I'm Eas!</h4>
             <p class="text-gray-800">I'm a self-taught web developer, who loves to learn new things web. My aim is to
               make a good, open-source web platform that everyone can use.</p>
+            <p class="text-gray-800">If my posts are useful for you, you can consider <a href="https://ko-fi.com/easterneas">buying me a coffee</a>, and I will happily appreciate it. :)</p>
             <div>
               {% for social in site.data.social_media %}
               <a href="{{ social.link }}"
@@ -71,13 +72,6 @@
           {% assign sameTagCount = 0 %}
           {% assign commonTags = '' %}
 
-          {% if relatedTipFlag %}
-          <h4 class="text-center text-xl sm:text-2xl col-span-1 md:col-span-2 lg:col-span-4">
-            I think you'll enjoy this
-          </h4>
-          {% assign relatedTipFlag = false %}
-          {% endif %}
-
           {% for tag in post.tags %}
           {% if post.url != page.url %}
             {% if page.tags contains tag %}
@@ -89,6 +83,14 @@
           {% endfor %}
 
           {% if sameTagCount >= minCommonTags %}
+
+          {% if relatedTipFlag %}
+          <h4 class="text-center text-xl sm:text-2xl col-span-1 md:col-span-2 lg:col-span-4">
+            I think you'll enjoy this
+          </h4>
+          {% assign relatedTipFlag = false %}
+          {% endif %}
+          
           <div>
             <a href="{{ post.url }}">
               <div class="bg-gray-200 rounded-lg hover:bg-gray-400">
@@ -115,11 +117,12 @@
           {% endif %}
           {% endfor %}
         </div>
-
-        {% if page.comments %}
-        {% include components/disqus.html %}
-        {% endif %}
       </div>
+    </div>
+
+    {% if page.comments %}
+    {% include components/disqus.html %}
+    {% endif %}
   </main>
 
   {% include footer.html %}
