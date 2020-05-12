@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+
+/* CUSTOM STYLES HERE */
+
+body {
+    @apply w-screen;
+    @apply overflow-x-hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav, .container {
+    @apply px-8;
+}
+
+.container {
+    @apply mx-auto;
+    @apply py-16;
+}
+
+#menu-lg > a:not(:first-child) {
+    @apply ml-4;
+}
+
+#menu-sm > a:not(:first-child) {
+    @apply mt-1;
+}
+
+@screen lg {
+    nav, .container {
+        @apply px-16;
+    }
+}
+
+@screen xl {
+    nav, .container {
+        @apply px-24;
+    }
+}
+
+
+#app > .container > ul,
+#app > .container > p {
+    @apply mb-4;
+}
+
+#app > .container > ul > li {
+    @apply list-disc;
+    @apply list-inside;
+}
+
+#app > .container > ul > li > * {
+    @apply inline-block;
+}
+
+#app > .container > h1,
+#app > .container > h2,
+#app > .container > h3,
+#app > .container > h4,
+#app > .container > h5,
+#app > .container > h6
+{
+    @apply my-4;
+    @apply font-bold;
+}
+
+#app > .container > h1 {
+    @apply text-4xl;
+}
+#app > .container > h2 {
+    @apply text-3xl;
+}
+#app > .container > h3 {
+    @apply text-2xl;
+}
+#app > .container > h4 {
+    @apply text-xl;
+}
+#app > .container > h5 {
+    @apply text-lg;
+}
+#app > .container > h6 {
+    @apply text-base;
+}
+
+#app > .container a {
+    @apply text-red-700 font-bold;
+    @apply ease-in-out transition-colors;
+    @apply duration-200;
+}
+
+#app > .container a:hover {
+    @apply text-red-400;
+}
+
+
+blockquote {
+    @apply border-l-8 border-gray-400;
+    @apply text-xl italic;
+    @apply pl-4 mb-4;
+}
+
+@tailwind utilities;
