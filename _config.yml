@@ -27,6 +27,7 @@ exclude:
   - "package*.json"
   - "node_modules"
   - "templates"
+  - "vendor"
 
 # PWA settings
 color: "#000000"
