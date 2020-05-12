@@ -1,0 +1,1 @@
+bundle install && bundle lock --add-platform ruby && bundle lock --add-platform x86_64-linux && pause
