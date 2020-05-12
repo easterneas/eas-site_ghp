@@ -1,15 +1,29 @@
 ---
-# post options
-layout: post
-title: Hello
-description: Tempor exercitation consectetur cillum quis laborum sunt consequat ullamco elit aliquip sit mollit incididunt. Amet sint voluptate tempor dolore cillum velit commodo Lorem et incididunt.
+# basic post options
+title: "Be 'native' in Windows with WSL"
+description: If you are using the latest version of Windows 10, or you are Windows 10 insider, chances are that Windows 10 includes Windows Subsystem for Linux (WSL) version 2.
+categories: [Development]
+tags: [Windows, Windows Subsystem for Linux, Bash]
 
-# permalink, categories, tags
-categories: [Welcome]
-tags: [Welcome, Blog]
-
-# other options
+# post components
 comments: true
+
+# post header options
+header:
+  fullscreen: false
+  image: /assets/img/site/header/blog.jpg
+  unsplash:
+    author: 
+    username: 
+
+# post sharing options
+sharing:
+  fb: After 12 years of vacuum, finally I can lay my hands on writing things on my blog again!
+  li: After 12 years of vacuum, finally I can lay my hands on writing things on my blog again!
+  tw: After 12 years of vacuum, now I can post things again on my blog!
+
+# advanced post options
+layout: post
 ---
 
 Sit sit Lorem consequat Lorem adipisicing nisi consequat dolor est sunt laborum fugiat ea. Laborum mollit ipsum ut aute adipisicing ipsum Lorem ea officia Lorem. Nostrud consequat labore consequat sint ad id esse aliqua nostrud. Et velit Lorem aliquip occaecat eu mollit. Cillum dolor id Lorem id excepteur ut fugiat labore ullamco velit labore ad aute.

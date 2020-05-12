@@ -1,3 +1,5 @@
+@tailwind base;
+
 body {
     font-family: 'Lato', sans-serif;
     overflow-y: auto;
@@ -6,9 +8,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Quicksand', sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
 
 /* Base */
 
@@ -83,7 +82,49 @@ main > div.container > div > p {
     } 
 } */
 
+#article > #disqus_thread {
+    max-width: 320px;
+    @apply mx-auto;
+    @apply mb-16;
+}
+
+@screen sm {
+    #article > #disqus_thread {
+        max-width: 480px;
+    }
+}
+
+@screen md {
+    #article > .container {
+        @apply shadow-2xl rounded-lg;
+        @apply bg-white;
+        @apply relative;
+
+        top: -4rem;
+    }
+
+    #article > #disqus_thread {
+        max-width: 768px;
+    }
+}
+
+@screen lg {
+    #article > #disqus_thread {
+        max-width: 1024px;
+    }
+}
+
+@screen xl {
+    #article > #disqus_thread {
+        max-width: 1280px;
+    }
+}
+
 /* Article-specific */
+
+#article > .container {
+    @apply py-16;
+}
 
 #article a {
     @apply text-blue-700;
@@ -93,15 +134,21 @@ main > div.container > div > p {
     @apply text-blue-900;
 }
 
-#article img {
+#article img:not(#about) {
     @apply mx-auto;
     @apply block;
     @apply w-full;
     @apply max-w-screen-sm;
 }
 
+#article pre {
+    @apply bg-gray-900;
+    @apply overflow-x-scroll;
+}
+
 #article pre > code {
     @apply w-full;
+    @apply py-4;
 }
 
 #article code {
@@ -109,10 +156,12 @@ main > div.container > div > p {
     @apply text-sm;
     @apply rounded-md;
     @apply inline-block rounded-sm;
-    @apply bg-gray-300;
+    @apply bg-gray-900;
+    @apply text-gray-400;
+    @apply mr-1;
 }
 
-#article > ul {
+#article ul {
     @apply list-outside;
     @apply pl-4;
     @apply list-disc;
@@ -148,4 +197,54 @@ main > div.container > div > p {
     @apply text-lg;
 }
 
+/* Markdown */
+
+#article .sr
+{
+    @apply text-red-500;
+}
+
+#article .se
+{
+    @apply text-orange-400;
+}
+
+#article .c1,
+#article .nt,
+#article .err,
+#article .o
+{
+    @apply text-green-700;
+}
+
+#article .nx
+{
+    @apply text-teal-500;
+}
+
+#article .s,
+#article .s1,
+#article .s2,
+#article .dl
+{
+    @apply text-red-400;
+}
+
+#article .p
+{
+    @apply text-gray-200;
+}
+
+#article .na,
+#article .nl
+{
+    @apply text-blue-400;
+}
+
+#article .k
+{
+    @apply text-purple-500;
+}
+
+@tailwind components;
 @tailwind utilities;

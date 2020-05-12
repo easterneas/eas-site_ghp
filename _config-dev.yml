@@ -1,0 +1,36 @@
+# theme: jekyll-theme-cayman
+title: Eas
+slogan: Keep it Easy and Simple.
+description: The home of the self-taught web developer. Loves to learn new things.
+google_analytics:
+permalink: /post/:year/:month/:day/:title/
+timezone: Asia/Jakarta
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+facebook:
+  page: "https://facebook.com/"
+
+github:
+  profile: "https://github.com/easterneas"
+  repository: "https://github.com/easterneas/easterneas.github.io"
+
+include:
+  - "assets"
+
+exclude:
+  - "*.config.js"
+  - "package*.json"
+  - "node_modules"
+  - "templates"
+
+# PWA settings
+color: "#000000"
+url: "https://eas.web.id"
+language: "en"
+lang_direction: "ltr"
+short_name: "e"
