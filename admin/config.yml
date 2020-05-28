@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: master # branch to update (optional; defaults to 'master' branch)
+
+publish_mode: editorial_workflow
+media_folder: "/assets/uploads"
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "_posts/" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Excerpt", name: "description", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Web Development", "Deployment", "IT in General", "Life Philosophy"]
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        min: 1
+        max: 7
+        options: ["JavaScript", "PHP", "Jekyll", "Windows", "Linux", "SSH", "Web Control Panel", "Shell", "Hardware", "Software", "Quotes", "Motivation", "Philosophy"]
+      # Post header options
+      - name: "header"
+        fields:
+          - {label: "Full-screen", name: "fullscreen", widget: "boolean", default: "false"}
+          - {label: "Image path", name: "image", widget: "image", default: "/assets/img/site/header/blog.jpg"}
+          - name: "unsplash"
+            fields:
+            - {label: "Author", name: "author", widget: "string", default: ""}
+            - {label: "Username", name: "username", widget: "string", default: ""}
+      # Post sharing options
+      - name: "sharing"
+        fields:
+          - {label: "Facebook", name: "fb", widget: "string", default: ""}
+          - {label: "LinkedIn", name: "li", widget: "string", default: ""}
+          - {label: "Twitter", name: "tw", widget: "string", default: ""}
+      # Advanced post options
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      # Content
+      - {label: "Body", name: "body", widget: "markdown"}
