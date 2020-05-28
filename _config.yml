@@ -31,7 +31,7 @@ exclude:
 
 # PWA settings
 color: "#000000"
-url: "https://eas.web.id"
+url: "https://easterneas.netlify.app"
 language: "en"
 lang_direction: "ltr"
 short_name: "e"
