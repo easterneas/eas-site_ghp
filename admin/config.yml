@@ -43,6 +43,6 @@ collections:
           - {label: "LinkedIn", name: "li", widget: "string", default: ""}
           - {label: "Twitter", name: "tw", widget: "string", default: ""}
       # Advanced post options
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       # Content
       - {label: "Body", name: "body", widget: "markdown"}
