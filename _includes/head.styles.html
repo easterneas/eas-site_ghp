@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/{{ site.data.manifest['docs.css'] }}">
 
 <style>
+{% if page.header.enabled %}
 {% if page.header.image %}
 header .simpleParallax {
     {% if page.header.fullscreen %}
@@ -34,4 +35,5 @@ header div#content {
     background-image: #777;
     {% endif %}
 }
+{% endif %}
 </style>
